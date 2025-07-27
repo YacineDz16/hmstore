@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>طلب Realfit F4</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #f4f4f4; padding: 20px; }
+        form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; margin-top: 20px; width: 100%; border-radius: 5px; font-size: 1em; }
+        img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
+		.btn-home {
+    display: block;
+    text-align: center;
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: #005599;
+}
+
+    </style>
+</head>
+<body>
+    <form>
+        <img src="realfit.jpg" alt="Realfit F4">
+        <h1>طلب Realfit F4</h1>
+        <label for="name">الاسم الكامل:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">رقم الهاتف:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="wilaya">الولاية:</label>
+        <input type="text" id="wilaya" name="wilaya" required>
+
+        <label for="commune">البلدية:</label>
+        <input type="text" id="commune" name="commune" required>
+
+        <label for="address">العنوان الكامل:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+
+        <label for="delivery">طريقة التوصيل:</label>
+        <select id="delivery" name="delivery">
+            <option value="bureau">إلى مكتب التوصيل</option>
+            <option value="home">إلى المنزل</option>
+        </select>
+
+        <label for="quantity">الكمية:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+        <button type="submit">تأكيد الطلب</button>
+    </form>
+	</form>
+
+<a href="index.html" class="btn-home">الرجوع إلى الصفحة الرئيسية</a>
+
+</body>
+</html>

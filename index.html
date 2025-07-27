@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>HM STORE DZ - الصفحة الرئيسية</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* الغلاف كصورة */
+        .cover {
+            background-image: url('couverture.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 280px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cover-text {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .cover-text h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .cover-text p {
+            margin: 5px 0 0;
+            font-size: 18px;
+        }
+
+        /* المنتجات */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .product h2 {
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+        }
+
+        .price {
+            color: #e91e63;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #eee;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- واجهة الغلاف -->
+    <div class="cover">
+        <div class="cover-text">
+            <h1>HM STORE DZ</h1>
+            <p>منتجات هايتاك أصلية - توصيل سريع إلى كل الولايات</p>
+        </div>
+    </div>
+
+    <!-- المنتجات -->
+    <section class="products">
+        <div class="product">
+            <img src="wifi.jpg" alt="WiFi Repeater">
+            <h2>مكرر WiFi</h2>
+            <p class="price">2900 دج</p>
+            <a href="commande-wifi.html" class="btn">أطلب الآن</a>
+        </div>
+        <div class="product">
+            <img src="realfit.jpg" alt="Realfit F4">
+            <h2>Realfit F4</h2>
+            <p class="price">2500 دج</p>
+            <a href="commande-realfit-f4.html" class="btn">أطلب الآن</a>
+        </div>
+        <div class="product">
+            <img src="lenovo.jpg" alt="Lenovo GM2 Pro">
+            <h2>Lenovo GM2 Pro</h2>
+            <p class="price">2000 دج</p>
+            <a href="commande-lenovo-gm2-pro.html" class="btn">أطلب الآن</a>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        &copy; 2025 HM STORE DZ - جميع الحقوق محفوظة
+    </footer>
+
+</body>
+</html>
