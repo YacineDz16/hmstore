@@ -22,28 +22,30 @@
 
     header {
       background-color: white;
-      padding-bottom: 10px;
+      padding: 20px 10px;
       text-align: center;
       border-bottom: 2px solid #e0e0e0;
     }
 
-    .banner {
-      width: 100%;
-      max-height: 280px;
-      object-fit: cover;
+    header img.banner {
+      width: 70%;
+      max-width: 1000px;
+      height: auto;
       display: block;
+      margin: 0 auto;
+      border-radius: 10px;
     }
 
     h1 {
       margin: 10px 0 5px;
-      font-size: 28px;
+      font-size: 26px;
       color: #333;
     }
 
     p.tagline {
       color: #666;
       margin-bottom: 20px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .products {
@@ -105,9 +107,32 @@
 
     footer {
       text-align: center;
-      padding: 10px;
+      padding: 20px 10px;
       color: #777;
       font-size: 14px;
+      background-color: #fff;
+      border-top: 1px solid #e0e0e0;
+    }
+	header img.banner {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .social {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .social a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+    }
+
+    .social a:hover {
+      color: #007BFF;
     }
   </style>
 </head>
@@ -118,7 +143,7 @@
   </div>
 
   <header>
-    <img src="couverture.jpg" alt="HM STORE" class="banner">
+    <img src="couverture.jpg" alt="HM STORE DZ" class="banner">
     <h1>منتجات هايتاك أصلية</h1>
     <p class="tagline">توصيل سريع إلى جميع الولايات - الدفع عند الاستلام</p>
   </header>
@@ -147,7 +172,12 @@
   </section>
 
   <footer>
-    © HM STORE DZ 2025 - جميع الحقوق محفوظة
+    <div class="social">
+      📘 <a href="https://www.facebook.com/profile.php?id=100063499301184" target="_blank">FB: HM STORE DZ</a> |
+      📸 <a href="https://www.instagram.com/hmstore16dz/" target="_blank">Instagram: HMSTORE16D</a> |
+      🎵 <a href="https://tiktok.com/@hm.store.dz4" target="_blank">TikTok: HM Store DZ</a>
+    </div>
+    <p>© HM STORE DZ 2025 - جميع الحقوق محفوظة</p>
   </footer>
 
 </body>
