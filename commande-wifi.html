@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -195,42 +196,38 @@
         document.getElementById("totalPrice").textContent = total;
       }
     }
-  </script>
-  <script>
-  document.querySelector("form").addEventListener("submit", function(e) {
-    e.preventDefault(); // منع الإرسال التقليدي للنموذج
 
-    const form = e.target;
-    const data = {
-      name: form.name.value,
-      phone: form.phone.value,
-      state: form.wilaya.value,
-      city: form.commune.value,
-      address: form.address.value,
-      delivery: form.deliveryType.value === "home" ? "إلى المنزل" : "إلى المكتب",
-      quantity: form.quantity.value
-    };
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        state: form.wilaya.value,
+        city: form.commune.value,
+        address: form.address.value,
+        delivery: form.deliveryType.value === "home" ? "إلى المنزل" : "إلى المكتب",
+        quantity: form.quantity.value
+      };
 
-    fetch("https://script.google.com/macros/s/AKfycbzfTOpQkb1tB2louVaqgHoZ2GfKZUA9WxOJzqepsPOtJ4Tds_PEo-mEjECQTSqEQyaD/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(res => res.json())
-    .then(res => {
-      alert("✅ تم إرسال الطلب بنجاح! شكراً لك.");
-      form.reset(); // مسح النموذج بعد الإرسال
-      document.getElementById("deliveryPrice").textContent = "--";
-      document.getElementById("totalPrice").textContent = "--";
-    })
-    .catch(error => {
-      console.error(error);
-      alert("❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
+      fetch("https://script.google.com/macros/s/AKfycbzfTOpQkb1tB2louVaqgHoZ2GfKZUA9WxOJzqepsPOtJ4Tds_PEo-mEjECQTSqEQyaD/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.text())
+      .then(responseText => {
+        console.log(responseText);
+        alert("✅ تم إرسال الطلب بنجاح! شكراً لك.");
+        form.reset();
+        document.getElementById("deliveryPrice").textContent = "--";
+        document.getElementById("totalPrice").textContent = "--";
+      })
+      .catch(error => {
+        console.error(error);
+        alert("❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
