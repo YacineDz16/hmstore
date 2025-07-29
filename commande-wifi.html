@@ -196,5 +196,41 @@
       }
     }
   </script>
+  <script>
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault(); // منع الإرسال التقليدي للنموذج
+
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      phone: form.phone.value,
+      state: form.wilaya.value,
+      city: form.commune.value,
+      address: form.address.value,
+      delivery: form.deliveryType.value === "home" ? "إلى المنزل" : "إلى المكتب",
+      quantity: form.quantity.value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbxgLKzOFMd34qv-ORNVM9yhk78QISS0Jm-inhBfGDxy-WgH53quMKsxewvs69dFk8VG/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      alert("✅ تم إرسال الطلب بنجاح! شكراً لك.");
+      form.reset(); // مسح النموذج بعد الإرسال
+      document.getElementById("deliveryPrice").textContent = "--";
+      document.getElementById("totalPrice").textContent = "--";
+    })
+    .catch(error => {
+      console.error(error);
+      alert("❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
+    });
+  });
+</script>
+
 </body>
 </html>
