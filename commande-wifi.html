@@ -211,25 +211,25 @@
       quantity: form.quantity.value
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbyOB5PlMjq2WAmhvBf8uSIkLEHOb5W0JG6LXna-zei_AOQ_8w7uGrdTamCmptB7NETQlA/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(res => res.json())
-    .then(res => {
-      alert("✅ تم إرسال الطلب بنجاح! شكراً لك.");
-      form.reset(); // مسح النموذج بعد الإرسال
-      document.getElementById("deliveryPrice").textContent = "--";
-      document.getElementById("totalPrice").textContent = "--";
-    })
-    .catch(error => {
-      console.error(error);
-      alert("❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
-    });
-  });
+    fetch("https://script.google.com/macros/s/AKfycbzfTOpQkb1tB2louVaqgHoZ2GfKZUA9WxOJzqepsPOtJ4Tds_PEo-mEjECQTSqEQyaD/exec", {
+  method: "POST",
+  mode: "no-cors",  // ✅ هذا السطر مهم لحل CORS
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+.then(() => {
+  alert("✅ تم إرسال الطلب بنجاح! شكراً لك.");
+  form.reset();
+  document.getElementById("deliveryPrice").textContent = "--";
+  document.getElementById("totalPrice").textContent = "--";
+})
+.catch(error => {
+  console.error(error);
+  alert("❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
+});
+
 </script>
 
 </body>
