@@ -42,29 +42,114 @@
         <label for="phone">رقم الهاتف:</label>
         <input type="tel" id="phone" name="phone" required>
 
-        <label for="wilaya">الولاية:</label>
-        <input type="text" id="wilaya" name="wilaya" required>
+        <label for="wilaya">اختر الولاية:</label>
+    <select id="wilaya" name="wilaya" onchange="calculateTotal()" required>
+      <option disabled selected>-- اختر الولاية --</option>
+      <script>
+        const wilayas = ["Adrar","Chlef","Laghouat","Oum El Bouaghi","Batna","Bejaia","Biskra","Bechar","Blida","Bouira","Tamanrasset","Tebessa","Tlemcen","Tiaret","Tizi Ouzou","Alger","Djelfa","Jijel","Setif","Saida","Skikda","Sidi Bel Abbes","Annaba","Guelma","Constantine","Medea","Mostaganem","M'Sila","Mascara","Ouargla","Oran","El Bayadh","Illizi","Bordj Bou Arreridj","Boumerdes","El Tarf","Tindouf","Tissemsilt","El Oued","Khenchela","Souk Ahras","Tipaza","Mila","Ain Defla","Naama","Ain Temouchent","Ghardaia","Relizane","Timimoun","Bordj Badji Mokhtar","Ouled Djellal","Beni Abbes","In Salah","Touggourt","Djanet","M'Ghair","El Meniaa"];
+        document.write(wilayas.map(w => `<option value="${w}">${w}</option>`).join(""));
+      </script>
+    </select>
 
-        <label for="commune">البلدية:</label>
-        <input type="text" id="commune" name="commune" required>
+    <label>نوع التوصيل:</label>
+    <input type="radio" name="deliveryType" value="home" checked onchange="calculateTotal()"> إلى المنزل
+    <input type="radio" name="deliveryType" value="desk" onchange="calculateTotal()"> إلى المكتب
 
-        <label for="address">العنوان الكامل:</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
+    <label for="commune">البلدية:</label>
+    <input type="text" id="commune" name="commune" required>
 
-        <label for="delivery">طريقة التوصيل:</label>
-        <select id="delivery" name="delivery">
-            <option value="bureau">إلى مكتب التوصيل</option>
-            <option value="home">إلى المنزل</option>
-        </select>
+    <label for="address">العنوان الكامل:</label>
+    <textarea id="address" name="address" rows="3" required></textarea>
 
-        <label for="quantity">الكمية:</label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+    <label for="quantity">الكمية:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1" required onchange="calculateTotal()">
 
-        <button type="submit">تأكيد الطلب</button>
-    </form>
-	</form>
+    <div class="price-box">
+      <p>سعر المنتج: <span id="productPriceDisplay">2300</span> دج</p>
+      <p>سعر التوصيل: <span id="deliveryPrice">--</span> دج</p>
+      <p>السعر الإجمالي: <span id="totalPrice">--</span> دج</p>
+    </div>
 
-<a href="index.html" class="btn-home">الرجوع إلى الصفحة الرئيسية</a>
+    <button type="submit">تأكيد الطلب</button>
+  </form>
 
+  <a href="index.html" class="btn-home">الرجوع إلى الصفحة الرئيسية</a>
+
+	<script>
+    const productPrice = 2300;
+    document.getElementById("productPriceDisplay").textContent = productPrice;
+
+    const prices = {
+      "Adrar": { home: 1200, desk: 800 },
+      "Chlef": { home: 700, desk: 450 },
+      "Laghouat": { home: 900, desk: 600 },
+      "Oum El Bouaghi": { home: 800, desk: 450 },
+      "Batna": { home: 800, desk: 450 },
+      "Bejaia": { home: 800, desk: 450 },
+      "Biskra": { home: 900, desk: 550 },
+      "Bechar": { home: 1200, desk: 700 },
+      "Blida": { home: 600, desk: 400 },
+      "Bouira": { home: 700, desk: 400 },
+      "Tamanrasset": { home: 1200, desk: 1200 },
+      "Tebessa": { home: 900, desk: 450 },
+      "Tlemcen": { home: 800, desk: 450 },
+      "Tiaret": { home: 800, desk: 450 },
+      "Tizi Ouzou": { home: 700, desk: 400 },
+      "Alger": { home: 400, desk: 200 },
+      "Djelfa": { home: 900, desk: 500 },
+      "Jijel": { home: 800, desk: 450 },
+      "Setif": { home: 800, desk: 450 },
+      "Saida": { home: 800, desk: 450 },
+      "Skikda": { home: 800, desk: 450 },
+      "Sidi Bel Abbes": { home: 800, desk: 450 },
+      "Annaba": { home: 800, desk: 450 },
+      "Guelma": { home: 800, desk: 450 },
+      "Constantine": { home: 800, desk: 450 },
+      "Medea": { home: 700, desk: 400 },
+      "Mostaganem": { home: 800, desk: 450 },
+      "M'Sila": { home: 800, desk: 450 },
+      "Mascara": { home: 800, desk: 450 },
+      "Ouargla": { home: 900, desk: 600 },
+      "Oran": { home: 800, desk: 450 },
+      "El Bayadh": { home: 900, desk: 650 },
+      "Illizi": { home: 1200, desk: 1200 },
+      "Bordj Bou Arreridj": { home: 800, desk: 450 },
+      "Boumerdes": { home: 600, desk: 350 },
+      "El Tarf": { home: 800, desk: 450 },
+      "Tindouf": { home: 1200, desk: 900 },
+      "Tissemsilt": { home: 800, desk: 500 },
+      "El Oued": { home: 900, desk: 600 },
+      "Khenchela": { home: 800, desk: 450 },
+      "Souk Ahras": { home: 800, desk: 450 },
+      "Tipaza": { home: 600, desk: 400 },
+      "Mila": { home: 800, desk: 450 },
+      "Ain Defla": { home: 700, desk: 450 },
+      "Naama": { home: 900, desk: 600 },
+      "Ain Temouchent": { home: 800, desk: 450 },
+      "Ghardaia": { home: 900, desk: 550 },
+      "Relizane": { home: 800, desk: 450 },
+      "Timimoun": { home: 1200, desk: 800 },
+      "Bordj Badji Mokhtar": { home: 1200, desk: 1200 },
+      "Ouled Djellal": { home: 900, desk: 900 },
+      "Beni Abbes": { home: 1200, desk: 1200 },
+      "In Salah": { home: 1200, desk: 1200 },
+      "Touggourt": { home: 900, desk: 600 },
+      "Djanet": { home: 1200, desk: 1200 },
+      "M'Ghair": { home: 900, desk: 900 },
+      "El Meniaa": { home: 900, desk: 600 }
+    };
+
+    function calculateTotal() {
+      const wilaya = document.getElementById("wilaya").value;
+      const type = document.querySelector('input[name="deliveryType"]:checked').value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      if (prices[wilaya]) {
+        const delivery = prices[wilaya][type];
+        const total = (productPrice * quantity) + delivery;
+        document.getElementById("deliveryPrice").textContent = delivery;
+        document.getElementById("totalPrice").textContent = total;
+      }
+    }
+  </script>
 </body>
 </html>
