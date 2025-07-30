@@ -213,13 +213,14 @@
 
     fetch("https://script.google.com/macros/s/AKfycbzfTOpQkb1tB2louVaqgHoZ2GfKZUA9WxOJzqepsPOtJ4Tds_PEo-mEjECQTSqEQyaD/exec", {
   method: "POST",
-  mode: "no-cors",  // ✅ هذا السطر مهم لحل CORS
+  mode: "no-cors",
   body: JSON.stringify(data),
   headers: {
     "Content-Type": "application/json"
   }
 })
 .then(() => {
+  console.log("طلب تم إرساله بنجاح");
   alert("✅ تم إرسال الطلب بنجاح! شكراً لك.");
   form.reset();
   document.getElementById("deliveryPrice").textContent = "--";
@@ -229,6 +230,7 @@
   console.error(error);
   alert("❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
 });
+
 
 </script>
 
