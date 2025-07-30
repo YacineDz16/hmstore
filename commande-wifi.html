@@ -243,18 +243,13 @@ const deliveryFees = {
 
     function calculateTotal() {
       const wilaya = document.getElementById("wilaya").value;
+      const type = document.querySelector('input[name="deliveryType"]:checked').value;
       const quantity = parseInt(document.getElementById("quantity").value);
-      const deliveryType = document.querySelector('input[name="نوع التوصيل"]:checked').value;
-
-      if (wilaya && deliveryFees[wilaya]) {
-        const delivery = deliveryFees[wilaya][deliveryType];
+      if (prices[wilaya]) {
+        const delivery = prices[wilaya][type];
         const total = (productPrice * quantity) + delivery;
-
         document.getElementById("deliveryPrice").textContent = delivery;
         document.getElementById("totalPrice").textContent = total;
-      } else {
-        document.getElementById("deliveryPrice").textContent = "--";
-        document.getElementById("totalPrice").textContent = "--";
       }
     }
   </script>
