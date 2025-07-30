@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -78,7 +79,6 @@
   </style>
 </head>
 <body>
-
   <form action="https://formsubmit.co/hadjmoussayacine@gmail.com" method="POST" target="_blank" oninput="calculateTotal()">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
@@ -96,63 +96,11 @@
 
     <label for="wilaya">اختر الولاية:</label>
     <select id="wilaya" name="الولاية" required>
-      <option value="Adrar">Adrar</option>
-      <option value="Chlef">Chlef</option>
-      <option value="Laghouat">Laghouat</option>
-      <option value="Oum El Bouaghi">Oum El Bouaghi</option>
-      <option value="Batna">Batna</option>
-      <option value="Bejaia">Bejaia</option>
-      <option value="Biskra">Biskra</option>
-      <option value="Bechar">Bechar</option>
-      <option value="Blida">Blida</option>
-      <option value="Bouira">Bouira</option>
-      <option value="Tamanrasset">Tamanrasset</option>
-      <option value="Tebessa">Tebessa</option>
-      <option value="Tlemcen">Tlemcen</option>
-      <option value="Tiaret">Tiaret</option>
-      <option value="Tizi Ouzou">Tizi Ouzou</option>
-      <option value="Alger">Alger</option>
-      <option value="Djelfa">Djelfa</option>
-      <option value="Jijel">Jijel</option>
-      <option value="Setif">Setif</option>
-      <option value="Saida">Saida</option>
-      <option value="Skikda">Skikda</option>
-      <option value="Sidi Bel Abbes">Sidi Bel Abbes</option>
-      <option value="Annaba">Annaba</option>
-      <option value="Guelma">Guelma</option>
-      <option value="Constantine">Constantine</option>
-      <option value="Medea">Medea</option>
-      <option value="Mostaganem">Mostaganem</option>
-      <option value="M'Sila">M'Sila</option>
-      <option value="Mascara">Mascara</option>
-      <option value="Ouargla">Ouargla</option>
-      <option value="Oran">Oran</option>
-      <option value="El Bayadh">El Bayadh</option>
-      <option value="Illizi">Illizi</option>
-      <option value="Bordj Bou Arreridj">Bordj Bou Arreridj</option>
-      <option value="Boumerdes">Boumerdes</option>
-      <option value="El Tarf">El Tarf</option>
-      <option value="Tindouf">Tindouf</option>
-      <option value="Tissemsilt">Tissemsilt</option>
-      <option value="El Oued">El Oued</option>
-      <option value="Khenchela">Khenchela</option>
-      <option value="Souk Ahras">Souk Ahras</option>
-      <option value="Tipaza">Tipaza</option>
-      <option value="Mila">Mila</option>
-      <option value="Ain Defla">Ain Defla</option>
-      <option value="Naama">Naama</option>
-      <option value="Ain Temouchent">Ain Temouchent</option>
-      <option value="Ghardaia">Ghardaia</option>
-      <option value="Relizane">Relizane</option>
-      <option value="Timimoun">Timimoun</option>
-      <option value="Bordj Badji Mokhtar">Bordj Badji Mokhtar</option>
-      <option value="Ouled Djellal">Ouled Djellal</option>
-      <option value="Beni Abbes">Beni Abbes</option>
-      <option value="In Salah">In Salah</option>
-      <option value="Touggourt">Touggourt</option>
-      <option value="Djanet">Djanet</option>
-      <option value="M'Ghair">M'Ghair</option>
-      <option value="El Meniaa">El Meniaa</option>
+      <option disabled selected>-- اختر الولاية --</option>
+      <script>
+        const wilayas = ["Adrar","Chlef","Laghouat","Oum El Bouaghi","Batna","Bejaia","Biskra","Bechar","Blida","Bouira","Tamanrasset","Tebessa","Tlemcen","Tiaret","Tizi Ouzou","Alger","Djelfa","Jijel","Setif","Saida","Skikda","Sidi Bel Abbes","Annaba","Guelma","Constantine","Medea","Mostaganem","M'Sila","Mascara","Ouargla","Oran","El Bayadh","Illizi","Bordj Bou Arreridj","Boumerdes","El Tarf","Tindouf","Tissemsilt","El Oued","Khenchela","Souk Ahras","Tipaza","Mila","Ain Defla","Naama","Ain Temouchent","Ghardaia","Relizane","Timimoun","Bordj Badji Mokhtar","Ouled Djellal","Beni Abbes","In Salah","Touggourt","Djanet","M'Ghair","El Meniaa"];
+        document.write(wilayas.map(w => `<option value="${w}">${w}</option>`).join(""));
+      </script>
     </select>
 
     <label for="commune">البلدية:</label>
@@ -181,76 +129,23 @@
 
   <script>
     const productPrice = 2900;
-const deliveryFees = {
-  "Adrar": { home: 1200, desk: 800 },
-      "Chlef": { home: 700, desk: 450 },
-      "Laghouat": { home: 900, desk: 600 },
-      "Oum El Bouaghi": { home: 800, desk: 450 },
-      "Batna": { home: 800, desk: 450 },
-      "Bejaia": { home: 800, desk: 450 },
-      "Biskra": { home: 900, desk: 550 },
-      "Bechar": { home: 1200, desk: 700 },
-      "Blida": { home: 600, desk: 400 },
-      "Bouira": { home: 700, desk: 400 },
-      "Tamanrasset": { home: 1200, desk: 1200 },
-      "Tebessa": { home: 900, desk: 450 },
-      "Tlemcen": { home: 800, desk: 450 },
-      "Tiaret": { home: 800, desk: 450 },
-      "Tizi Ouzou": { home: 700, desk: 400 },
-      "Alger": { home: 400, desk: 200 },
-      "Djelfa": { home: 900, desk: 500 },
-      "Jijel": { home: 800, desk: 450 },
-      "Setif": { home: 800, desk: 450 },
-      "Saida": { home: 800, desk: 450 },
-      "Skikda": { home: 800, desk: 450 },
-      "Sidi Bel Abbes": { home: 800, desk: 450 },
-      "Annaba": { home: 800, desk: 450 },
-      "Guelma": { home: 800, desk: 450 },
-      "Constantine": { home: 800, desk: 450 },
-      "Medea": { home: 700, desk: 400 },
-      "Mostaganem": { home: 800, desk: 450 },
-      "M'Sila": { home: 800, desk: 450 },
-      "Mascara": { home: 800, desk: 450 },
-      "Ouargla": { home: 900, desk: 600 },
-      "Oran": { home: 800, desk: 450 },
-      "El Bayadh": { home: 900, desk: 650 },
-      "Illizi": { home: 1200, desk: 1200 },
-      "Bordj Bou Arreridj": { home: 800, desk: 450 },
-      "Boumerdes": { home: 600, desk: 350 },
-      "El Tarf": { home: 800, desk: 450 },
-      "Tindouf": { home: 1200, desk: 900 },
-      "Tissemsilt": { home: 800, desk: 500 },
-      "El Oued": { home: 900, desk: 600 },
-      "Khenchela": { home: 800, desk: 450 },
-      "Souk Ahras": { home: 800, desk: 450 },
-      "Tipaza": { home: 600, desk: 400 },
-      "Mila": { home: 800, desk: 450 },
-      "Ain Defla": { home: 700, desk: 450 },
-      "Naama": { home: 900, desk: 600 },
-      "Ain Temouchent": { home: 800, desk: 450 },
-      "Ghardaia": { home: 900, desk: 550 },
-      "Relizane": { home: 800, desk: 450 },
-      "Timimoun": { home: 1200, desk: 800 },
-      "Bordj Badji Mokhtar": { home: 1200, desk: 1200 },
-      "Ouled Djellal": { home: 900, desk: 900 },
-      "Beni Abbes": { home: 1200, desk: 1200 },
-      "In Salah": { home: 1200, desk: 1200 },
-      "Touggourt": { home: 900, desk: 600 },
-      "Djanet": { home: 1200, desk: 1200 },
-      "M'Ghair": { home: 900, desk: 900 },
-      "El Meniaa": { home: 900, desk: 600 }
-};
+    const deliveryFees = {
+      "Alger": { "إلى المنزل": 400, "إلى المكتب": 200 },
+      "Oran": { "إلى المنزل": 800, "إلى المكتب": 450 },
+      "Blida": { "إلى المنزل": 600, "إلى المكتب": 400 },
+      "Setif": { "إلى المنزل": 800, "إلى المكتب": 450 },
+      "Chlef": { "إلى المنزل": 700, "إلى المكتب": 450 }
+    };
 
     function calculateTotal() {
       const wilaya = document.getElementById("wilaya").value;
-      const type = document.querySelector('input[name="deliveryType"]:checked').value;
       const quantity = parseInt(document.getElementById("quantity").value);
-      if (prices[wilaya]) {
-        const delivery = prices[wilaya][type];
-        const total = (productPrice * quantity) + delivery;
-        document.getElementById("deliveryPrice").textContent = delivery;
-        document.getElementById("totalPrice").textContent = total;
-      }
+      const deliveryType = document.querySelector('input[name="نوع التوصيل"]:checked').value;
+      const delivery = (deliveryFees[wilaya] && deliveryFees[wilaya][deliveryType]) || 0;
+      const total = (productPrice * quantity) + delivery;
+
+      document.getElementById("deliveryPrice").textContent = delivery;
+      document.getElementById("totalPrice").textContent = total;
     }
   </script>
 </body>
