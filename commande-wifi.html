@@ -95,7 +95,7 @@
     <input type="tel" id="phone" name="رقم الهاتف" required>
 
     <label for="wilaya">اختر الولاية:</label>
-    <select id="wilaya" name="الولاية" required>
+   <select id="wilaya" name="wilaya" onchange="calculateTotal()" required>
       <option disabled selected>-- اختر الولاية --</option>
       <script>
         const wilayas = ["Adrar","Chlef","Laghouat","Oum El Bouaghi","Batna","Bejaia","Biskra","Bechar","Blida","Bouira","Tamanrasset","Tebessa","Tlemcen","Tiaret","Tizi Ouzou","Alger","Djelfa","Jijel","Setif","Saida","Skikda","Sidi Bel Abbes","Annaba","Guelma","Constantine","Medea","Mostaganem","M'Sila","Mascara","Ouargla","Oran","El Bayadh","Illizi","Bordj Bou Arreridj","Boumerdes","El Tarf","Tindouf","Tissemsilt","El Oued","Khenchela","Souk Ahras","Tipaza","Mila","Ain Defla","Naama","Ain Temouchent","Ghardaia","Relizane","Timimoun","Bordj Badji Mokhtar","Ouled Djellal","Beni Abbes","In Salah","Touggourt","Djanet","M'Ghair","El Meniaa"];
@@ -103,21 +103,21 @@
       </script>
     </select>
 
-    <label for="commune">البلدية:</label>
-    <input type="text" id="commune" name="البلدية" required>
-
-    <label for="address">العنوان الكامل:</label>
-    <textarea id="address" name="العنوان الكامل" rows="3" required></textarea>
-
-    <label for="quantity">الكمية:</label>
-    <input type="number" id="quantity" name="الكمية" min="1" value="1" required>
-
     <label>نوع التوصيل:</label>
     <input type="radio" name="deliveryType" value="home" checked onchange="calculateTotal()"> إلى المنزل
     <input type="radio" name="deliveryType" value="desk" onchange="calculateTotal()"> إلى المكتب
 
+    <label for="commune">البلدية:</label>
+    <input type="text" id="commune" name="commune" required>
+
+    <label for="address">العنوان الكامل:</label>
+    <textarea id="address" name="address" rows="3" required></textarea>
+
+    <label for="quantity">الكمية:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1" required onchange="calculateTotal()">
+
     <div class="price-box">
-      <p>سعر المنتج: <span id="productPriceDisplay">2500</span> دج</p>
+      <p>سعر المنتج: <span id="productPriceDisplay">2000</span> دج</p>
       <p>سعر التوصيل: <span id="deliveryPrice">--</span> دج</p>
       <p>السعر الإجمالي: <span id="totalPrice">--</span> دج</p>
     </div>
@@ -126,7 +126,6 @@
   </form>
 
   <a href="index.html" class="btn-home">الرجوع إلى الصفحة الرئيسية</a>
-
   <script>
     const productPrice = 2500;
     const deliveryFees = {
