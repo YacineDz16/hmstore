@@ -113,8 +113,8 @@
     <input type="number" id="quantity" name="الكمية" min="1" value="1" required>
 
     <label>نوع التوصيل:</label>
-    <input type="radio" name="نوع التوصيل" value="إلى المنزل" checked> إلى المنزل
-    <input type="radio" name="نوع التوصيل" value="إلى المكتب"> إلى المكتب
+    <input type="radio" name="deliveryType" value="home" checked onchange="calculateTotal()"> إلى المنزل
+    <input type="radio" name="deliveryType" value="desk" onchange="calculateTotal()"> إلى المكتب
 
     <div class="price-box">
       <p>سعر المنتج: <span id="productPriceDisplay">2500</span> دج</p>
